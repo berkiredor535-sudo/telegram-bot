@@ -1,2 +1,4 @@
 python-telegram-bot[job-queue]==21.6
 anthropic==0.39.0
+# anthropic 0.39.0 verwendet das in httpx 0.28 entfernte Argument proxies.
+httpx==0.27.2
