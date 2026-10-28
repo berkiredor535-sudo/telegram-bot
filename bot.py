@@ -37,7 +37,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-client = Anthropic(api_key=ANTHROPIC_API_KEY)
+client: Anthropic | None = None
 
 # Gesprächsverlauf pro Chat-ID (nur im Arbeitsspeicher, geht bei Neustart verloren)
 conversation_history: dict[int, list[dict]] = {}
@@ -150,11 +150,15 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
 
 def main() -> None:
+    global client
+
     if not TELEGRAM_TOKEN:
         raise RuntimeError("Umgebungsvariable TELEGRAM_BOT_TOKEN fehlt.")
     if not ANTHROPIC_API_KEY:
         raise RuntimeError("Umgebungsvariable ANTHROPIC_API_KEY fehlt.")
 
+    # Erst nach der Prüfung der Konfiguration einen API-Client erstellen.
+    client = Anthropic(api_key=ANTHROPIC_API_KEY)
     app = Application.builder().token(TELEGRAM_TOKEN).build()
 
     app.add_handler(CommandHandler("start", start))
