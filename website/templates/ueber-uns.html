@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="service-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="{{ url_for('index') }}">Startseite</a> / Über uns</p>
+    <p class="eyebrow">Über uns</p>
+    <h1>Ein Familienbetrieb, ein Ansprechpartner</h1>
+    <p class="hero-lead">SR Ortung und Bautrocknung GbR wird von zwei Brüdern geführt: Redan Mustafa Kopo und Serkan Mustafa Kopo Berki. Egal mit wem Sie sprechen – Sie bekommen dieselbe Antwort und denselben Ansprechpartner von der Ortung bis zum fertigen Raum.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">RK</div>
+        <div>
+          <h3>Redan Mustafa Kopo</h3>
+          <p>Gelernter Installateur und Mitinhaber. Verantwortlich für Ortung, Reparatur und die technische Umsetzung vor Ort.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">SB</div>
+        <div>
+          <h3>Serkan Mustafa Kopo Berki</h3>
+          <p>Mitinhaber. Koordiniert Termine, Trocknung und die Wiederherstellung gemeinsam mit den beteiligten Gewerken.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <p class="eyebrow">Wie wir arbeiten</p>
+    <h2>Warum ein Familienbetrieb den Unterschied macht</h2>
+    <div class="grid grid-3" style="margin-top:24px;">
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Ehrlich</h3>
+        <p>Wir sagen Ihnen, was wirklich nötig ist – und was nicht. Keine unnötigen Arbeiten, keine versteckten Schritte.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.9 4.9l2.9 2.9M16.2 16.2l2.9 2.9M2 12h4M18 12h4M4.9 19.1l2.9-2.9M16.2 7.8l2.9-2.9"/></svg></div>
+        <h3>Transparent</h3>
+        <p>Jeder Schritt wird erklärt, bevor er passiert – inklusive einer realistischen Einschätzung der Kosten.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <h3>Gründlich</h3>
+        <p>Wir orten, bevor wir öffnen, und dokumentieren jeden Schritt mit Fotos und Messwerten.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Einsatzgebiet</p>
+    <h2>Grevenbroich und Umgebung</h2>
+    <p style="max-width:62ch;">Wir sind in Grevenbroich ansässig und für Sie im gesamten Rhein-Kreis Neuss im Einsatz – mit 24-Stunden-Notdienst, 7 Tage die Woche, und einem Büro, das Montag bis Freitag von 8 bis 17 Uhr erreichbar ist.</p>
+    <div class="btn-group">
+      <a href="tel:+4915172448381" class="btn btn-primary">Jetzt anrufen</a>
+      <a href="{{ url_for('kontakt') }}" class="btn btn-outline">Kontakt aufnehmen</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

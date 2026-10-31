@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="service-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="{{ url_for('index') }}">Startseite</a> / Leistungen</p>
+    <p class="eyebrow">Alle Leistungen</p>
+    <h1>Von der Ortung bis zum letzten Anstrich – alles aus einer Hand</h1>
+    <p class="hero-lead">Fünf Leistungen, ein Ansprechpartner: Wir orten das Leck, reparieren die Ursache, trocknen das Gebäude und stellen den Raum wieder her – jeder Schritt dokumentiert mit Fotos und Messwerten für Ihre Versicherung.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid grid-3">
+      {% for slug, service in services.items() %}
+      <a href="{{ url_for('leistung_detail', slug=slug) }}" class="card card-link">
+        <div class="card-icon">
+          {% if slug == 'leckageortung' %}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          {% elif slug == 'wasserschaden-bautrocknung' %}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.7S6 10 6 14.2a6 6 0 0 0 12 0C18 10 12 2.7 12 2.7Z"/></svg>
+          {% elif slug == 'reparatur' %}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.9L3 18.5V21h2.5l6.3-6.3a4 4 0 0 0 5.9-5.4l-3-3Z"/></svg>
+          {% elif slug == 'wiederherstellung' %}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V9l7-6 7 6v12M9 21v-6h6v6"/></svg>
+          {% else %}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h11a4 4 0 1 1 0 8H9M4 7v10"/></svg>
+          {% endif %}
+        </div>
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.teaser }}</p>
+        <span class="more">Wann sinnvoll, was Sie bekommen, wie wir vorgehen →</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Nicht sicher, welche Leistung die richtige ist?</h2>
+      <p style="max-width:52ch; margin:0 auto 24px;">Rufen Sie uns an oder schreiben Sie uns per WhatsApp – wir sagen Ihnen in wenigen Minuten, wie wir Ihnen helfen können.</p>
+      <div class="btn-group" style="justify-content:center;">
+        <a href="tel:+4915172448381" class="btn btn-primary">01517 2448381 anrufen</a>
+        <a href="{{ url_for('kontakt') }}" class="btn btn-outline">Rückruf anfordern</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

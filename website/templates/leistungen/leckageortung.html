@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="service-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="{{ url_for('index') }}">Startseite</a> / <a href="{{ url_for('leistungen_index') }}">Leistungen</a> / Leckageortung</p>
+    <p class="eyebrow">Leistung 1 von 5</p>
+    <h1>Leckageortung</h1>
+    <p class="hero-lead">Wir finden das Leck, bevor etwas aufgestemmt wird: Feuchtemessung, Wärmebildkamera, Druckprüfung, akustische Ortung und Prüfgas – kombiniert, bis die Stelle wirklich feststeht.</p>
+    <div class="btn-group">
+      <a href="tel:+4915172448381" class="btn btn-primary">Jetzt anrufen</a>
+      <a href="{{ url_for('schaden_melden') }}" class="btn btn-outline">Schaden melden</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="service-section-title"><span class="badge-num">1</span><h2>Wann ist eine Leckageortung sinnvoll?</h2></div>
+    <ul class="check-list">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Der Wasserzähler dreht sich, obwohl kein Wasser verbraucht wird.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Feuchte Flecken, abblätternder Putz oder Geruch nach Feuchtigkeit treten auf, ohne erkennbare Ursache.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Nachbarn oder Mieter melden feuchte Stellen, die Ursache liegt aber bei Ihnen im Haus.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Nach einem Wasserschaden soll die genaue Ursache geklärt werden, bevor saniert wird.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Vor Kauf, Vermietung oder Sanierung soll geprüft werden, ob Leitungen dicht sind.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="service-section-title"><span class="badge-num">2</span><h2>Was Sie bekommen</h2></div>
+    <div class="grid grid-2">
+      <ul class="check-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Feuchtemessung im Raster zur Eingrenzung des Bereichs</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Wärmebildkamera zur berührungslosen Diagnose</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Druckprüfung der betroffenen Leitungen</li>
+      </ul>
+      <ul class="check-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Akustische Ortung zur Eingrenzung der genauen Stelle</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Prüfgas-Verfahren bei schwer zugänglichen Leitungen</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Ortungsprotokoll mit Fotos – zur Vorlage bei Ihrer Versicherung</li>
+      </ul>
+    </div>
+    <p style="margin-top:18px;">Geöffnet wird erst, wenn die Stelle feststeht. So bleibt der Eingriff in Wand, Boden oder Estrich so klein wie möglich.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="service-section-title"><span class="badge-num">3</span><h2>So gehen wir vor</h2></div>
+    <div class="process-steps">
+      <div class="step"><span class="step-num">1</span><h3>Anruf oder WhatsApp</h3><p>Sie schildern uns das Problem – wir sagen, welche Verfahren sinnvoll sind.</p></div>
+      <div class="step"><span class="step-num">2</span><h3>Erstbegehung</h3><p>Feuchtemessung und Wärmebild grenzen den auffälligen Bereich ein.</p></div>
+      <div class="step"><span class="step-num">3</span><h3>Feinortung</h3><p>Druckprüfung, akustische Ortung und Prüfgas bestätigen die genaue Stelle.</p></div>
+      <div class="step"><span class="step-num">4</span><h3>Protokoll &amp; Entscheidung</h3><p>Sie erhalten das Ortungsprotokoll und entscheiden gemeinsam mit uns über Reparatur und Trocknung.</p></div>
+    </div>
+  </div>
+</section>
+
+{% include "partials/_service-crosslinks.html" %}
+{% endblock %}

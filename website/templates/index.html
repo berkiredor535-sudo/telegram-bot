@@ -1,0 +1,227 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="hero">
+  <div class="container">
+    <div>
+      <p class="eyebrow">Leckageortung · Bautrocknung · Grevenbroich</p>
+      <h1>Wir finden das Leck, <span class="accent-underline">bevor</span> die Wand aufgestemmt wird.</h1>
+      <p class="hero-lead">Ortung, Reparatur, Trocknung und Wiederherstellung aus einer Hand – mit einem festen Ansprechpartner von der ersten Messung bis zum letzten Pinselstrich.</p>
+
+      <div class="hero-badges">
+        <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> 5 Leistungen, 1 Ansprechpartner</span>
+        <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-6l-2-2H5a2 2 0 0 0-2 2Z"/></svg> Fotos &amp; Messwerte für die Versicherung</span>
+        <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> 24-Stunden-Notdienst, 7 Tage</span>
+      </div>
+
+      <div class="btn-group">
+        <a href="tel:+4915172448381" class="btn btn-primary">Jetzt Notdienst anrufen</a>
+        <a href="{{ url_for('schaden_melden') }}" class="btn btn-outline">Schaden melden</a>
+      </div>
+    </div>
+
+    <div class="thermal-visual" role="img" aria-label="Schematische Wärmebild-Darstellung einer Wand: Ein Leck zeigt sich als helle, warme Zone hinter dem Putz.">
+      <svg class="house-outline" viewBox="0 0 400 320" fill="none" aria-hidden="true">
+        <rect x="40" y="60" width="320" height="220" stroke="currentColor" stroke-width="3"/>
+        <line x1="40" y1="140" x2="360" y2="140" stroke="currentColor" stroke-width="2"/>
+        <line x1="200" y1="60" x2="200" y2="280" stroke="currentColor" stroke-width="2"/>
+        <rect x="70" y="170" width="70" height="90" stroke="currentColor" stroke-width="2"/>
+        <rect x="260" y="90" width="60" height="40" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <span class="leak-glow" aria-hidden="true"></span>
+      <span class="scanline" aria-hidden="true"></span>
+      <div class="caption">
+        <span>Wärmebild – Live-Diagnose</span>
+        <span class="hot">34,8 °C Feuchtezone erkannt</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="trust-strip">
+      <div class="trust-item"><span class="num">5</span><span class="label">Leistungen aus einer Hand</span></div>
+      <div class="trust-item"><span class="num">1</span><span class="label">fester Ansprechpartner</span></div>
+      <div class="trust-item"><span class="num">24/7</span><span class="label">Notdienst, 7 Tage die Woche</span></div>
+      <div class="trust-item"><span class="num">100%</span><span class="label">Dokumentiert für die Versicherung</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <p class="eyebrow">Unser Versprechen</p>
+    <h2>Erst suchen, dann öffnen – und immer transparent</h2>
+    <div class="grid grid-3" style="margin-top:28px;">
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <h3>Wir öffnen nur dort, wo das Leck ist</h3>
+        <p>Feuchtemessung, Wärmebildkamera, Druckprüfung, akustische Ortung und Prüfgas – die Wand wird erst geöffnet, wenn die Stelle wirklich gefunden ist.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.9 4.9l2.9 2.9M16.2 16.2l2.9 2.9M2 12h4M18 12h4M4.9 19.1l2.9-2.9M16.2 7.8l2.9-2.9"/></svg></div>
+        <h3>Sie wissen vorher, was wir tun</h3>
+        <p>Vor jedem Schritt erklären wir, was als Nächstes passiert und was es ungefähr kostet. Keine Überraschungen auf der Rechnung.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-6l-2-2H5a2 2 0 0 0-2 2Z"/></svg></div>
+        <h3>Saubere Baustelle, lückenloses Protokoll</h3>
+        <p>Ortungs- und Trocknungsprotokoll mit Fotos, Messverlauf und Geräte-Standzeiten – genau das, was Ihre Versicherung braucht.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Unsere Leistungen</p>
+    <h2>Von der Ortung bis zum letzten Anstrich</h2>
+    <div class="grid grid-3" style="margin-top:28px;">
+      {% for slug, service in services.items() %}
+      <a href="{{ url_for('leistung_detail', slug=slug) }}" class="card card-link">
+        <div class="card-icon">
+          {% if slug == 'leckageortung' %}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          {% elif slug == 'wasserschaden-bautrocknung' %}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.7S6 10 6 14.2a6 6 0 0 0 12 0C18 10 12 2.7 12 2.7Z"/></svg>
+          {% elif slug == 'reparatur' %}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.9L3 18.5V21h2.5l6.3-6.3a4 4 0 0 0 5.9-5.4l-3-3Z"/></svg>
+          {% elif slug == 'wiederherstellung' %}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V9l7-6 7 6v12M9 21v-6h6v6"/></svg>
+          {% else %}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h11a4 4 0 1 1 0 8H9M4 7v10"/></svg>
+          {% endif %}
+        </div>
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.teaser }}</p>
+        <span class="more">Mehr erfahren →</span>
+      </a>
+      {% endfor %}
+      <a href="{{ url_for('leistungen_index') }}" class="card card-link" style="justify-content:center; align-items:center; text-align:center;">
+        <h3>Alle Leistungen im Überblick</h3>
+        <span class="more">Zur Übersicht →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <p class="eyebrow">Vorher / Nachher</p>
+    <h2>So sieht eine erfolgreiche Trocknung aus</h2>
+    <p style="max-width:60ch;">Eigene Illustration – ziehen Sie den Regler, um den Unterschied zwischen einer durchfeuchteten Wand und dem fachgerecht wiederherstellten Raum zu sehen.</p>
+
+    <div class="ba-slider" style="margin-top:24px;" aria-label="Vorher/Nachher-Vergleich einer Wand">
+      <div class="ba-pane ba-before">
+        <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Vorher: durchfeuchtete Wand mit Flecken und abblätterndem Putz">
+          <rect width="400" height="250" fill="#3a332a"/>
+          <rect y="200" width="400" height="50" fill="#26211b"/>
+          <ellipse cx="140" cy="110" rx="70" ry="50" fill="#5c5140" opacity="0.8"/>
+          <ellipse cx="190" cy="140" rx="40" ry="28" fill="#4a4030" opacity="0.7"/>
+          <path d="M80 60 L95 95 L75 110 L100 150" stroke="#2a251d" stroke-width="3" fill="none"/>
+          <circle cx="260" cy="90" r="4" fill="#9a8b60"/>
+          <circle cx="275" cy="120" r="3" fill="#9a8b60"/>
+          <circle cx="250" cy="150" r="3.5" fill="#9a8b60"/>
+        </svg>
+      </div>
+      <div class="ba-pane ba-after">
+        <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Nachher: trockene, renovierte Wand mit hellen Fliesen">
+          <rect width="400" height="250" fill="#eef0ee"/>
+          <rect y="200" width="400" height="50" fill="#c9cdc9"/>
+          <g stroke="#d7dad7" stroke-width="2">
+            <line x1="0" y1="40" x2="400" y2="40"/>
+            <line x1="0" y1="80" x2="400" y2="80"/>
+            <line x1="0" y1="120" x2="400" y2="120"/>
+            <line x1="0" y1="160" x2="400" y2="160"/>
+            <line x1="50" y1="0" x2="50" y2="200"/>
+            <line x1="150" y1="0" x2="150" y2="200"/>
+            <line x1="250" y1="0" x2="250" y2="200"/>
+            <line x1="350" y1="0" x2="350" y2="200"/>
+          </g>
+          <rect x="300" y="150" width="14" height="50" fill="#5a8a5a"/>
+          <circle cx="307" cy="140" r="22" fill="#6fae6f"/>
+        </svg>
+      </div>
+      <span class="ba-tag before">Vorher</span>
+      <span class="ba-tag after">Nachher</span>
+      <div class="ba-handle">
+        <span class="grip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 5 3 12l5 7M16 5l5 7-5 7"/></svg></span>
+      </div>
+      <input type="range" class="ba-range" min="0" max="100" value="50" aria-label="Vorher/Nachher-Regler">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">So laufen Ortung &amp; Trocknung ab</p>
+    <h2>In vier Schritten zur trockenen Wand</h2>
+    <div class="process-steps" style="margin-top:28px;">
+      <div class="step"><span class="step-num">1</span><h3>Anruf oder WhatsApp</h3><p>Schaden kurz beschreiben oder online melden – wir sagen Ihnen, wie es weitergeht.</p></div>
+      <div class="step"><span class="step-num">2</span><h3>Ortung &amp; Diagnose</h3><p>Feuchtemessung, Wärmebild, Druckprüfung – das Leck wird eingegrenzt, bevor etwas geöffnet wird.</p></div>
+      <div class="step"><span class="step-num">3</span><h3>Reparatur &amp; Trocknung</h3><p>Leitung reparieren, Trockner aufstellen, Messverlauf dokumentieren – mit Protokoll für die Versicherung.</p></div>
+      <div class="step"><span class="step-num">4</span><h3>Wiederherstellung</h3><p>Putz, Estrich, Fliesen, Anstrich – wir koordinieren alle Gewerke bis zur fertigen Wand.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="grid grid-2" style="align-items:center;">
+      <div>
+        <p class="eyebrow">Versicherungsfall</p>
+        <h2>Wasserschaden? Diese Schritte zählen jetzt.</h2>
+        <p>Wasser absperren, Strom abschalten, Fotos machen, Versicherung informieren – wir zeigen Ihnen die wichtigsten Sofort-Maßnahmen und erklären, welches Protokoll Sie für Wohngebäude- oder Hausratversicherung brauchen.</p>
+        <a href="{{ url_for('versicherung') }}" class="btn btn-outline">Zu den Versicherungs-Tipps</a>
+      </div>
+      <ul class="check-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Ortungsprotokoll mit Fotos</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Trocknungsprotokoll mit Messverlauf &amp; Standzeiten</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Hinweise zu Wohngebäude- vs. Hausratversicherung</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Unterstützung bei der Schadenmeldung</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Häufige Fragen</p>
+    <h2>Kurz beantwortet</h2>
+    <div style="max-width:760px; margin-top:16px;">
+      {% set faqs = [
+        ("Wie schnell seid ihr vor Ort?", "Im Notfall sind wir 24 Stunden, 7 Tage die Woche erreichbar. Wie schnell wir konkret vor Ort sein können, hängt von Auftragslage und Entfernung ab – rufen Sie uns an, wir sagen Ihnen sofort Bescheid."),
+        ("Muss meine Wand aufgestemmt werden?", "Nicht zwingend. Wir orten das Leck zuerst mit Feuchtemessung, Wärmebildkamera, Druckprüfung, akustischer Ortung und Prüfgas. Geöffnet wird erst, wenn die Stelle wirklich gefunden ist."),
+        ("Was kostet eine Leckageortung?", "Das hängt vom Einzelfall ab (Zugänglichkeit, Gebäude, vermutete Ursache). Konkrete Preise nennen wir Ihnen nach kurzer Rückfrage – transparent, bevor wir anfangen."),
+        ("Übernimmt die Versicherung die Kosten?", "Das ist abhängig von Ihrer Police. Wir liefern Ihnen die Protokolle und Fotos, die Versicherungen üblicherweise für die Schadenregulierung benötigen. Details finden Sie auf unserer Versicherungs-Seite."),
+      ] %}
+      {% for q, a in faqs %}
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-{{ loop.index }}">
+          {{ q }}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="accordion-panel" id="faq-{{ loop.index }}" data-open="false">
+          <p>{{ a }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Schaden entdeckt? Wir kümmern uns.</h2>
+      <p style="max-width:52ch; margin:0 auto 24px;">Melden Sie Ihren Schaden online mit Fotos oder rufen Sie direkt unseren 24-Stunden-Notdienst an.</p>
+      <div class="btn-group" style="justify-content:center;">
+        <a href="tel:+4915172448381" class="btn btn-primary">01517 2448381 anrufen</a>
+        <a href="{{ url_for('schaden_melden') }}" class="btn btn-outline">Schaden online melden</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

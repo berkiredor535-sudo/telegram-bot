@@ -1,0 +1,52 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="safety-note" style="margin-bottom: 36px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/></svg>
+      <div><strong>Bei Gefahr für Menschen</strong> (z. B. Wasser an der Elektrik) sofort <strong>Strom abschalten</strong> und den <strong>Notruf 112</strong> wählen. Erst danach uns oder die Feuerwehr informieren.</div>
+    </div>
+
+    <div class="footer-grid">
+      <div>
+        <h4>SR Ortung und Bautrocknung GbR</h4>
+        <ul>
+          <li>Bergheimer Straße 13<br>41515 Grevenbroich</li>
+          <li><a href="tel:+4915172448381">01517 2448381</a> (Telefon &amp; WhatsApp)</li>
+          <li><a href="mailto:rs.schadenortung@gmail.com">rs.schadenortung@gmail.com</a></li>
+          <li>Büro: Mo–Fr 8–17 Uhr<br>Notdienst: 24 Stunden, 7 Tage</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Leistungen</h4>
+        <ul>
+          {% for slug, service in services.items() %}
+            <li><a href="{{ url_for('leistung_detail', slug=slug) }}">{{ service.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div>
+        <h4>Unternehmen</h4>
+        <ul>
+          <li><a href="{{ url_for('ueber_uns') }}">Über uns</a></li>
+          <li><a href="{{ url_for('versicherung') }}">Versicherung</a></li>
+          <li><a href="{{ url_for('kontakt') }}">Kontakt</a></li>
+          <li><a href="{{ url_for('schaden_melden') }}">Schaden melden</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Einsatzgebiet</h4>
+        <ul>
+          <li>Grevenbroich und Umgebung</li>
+          <li>Rhein-Kreis Neuss</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© {{ current_year }} SR Ortung und Bautrocknung GbR · Inhaber: Redan Mustafa Kopo &amp; Serkan Mustafa Kopo Berki</span>
+      <ul>
+        <li><a href="{{ url_for('impressum') }}">Impressum</a></li>
+        <li><a href="{{ url_for('datenschutz') }}">Datenschutz</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>

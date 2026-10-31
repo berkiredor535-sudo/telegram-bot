@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="section" style="padding-top:72px;">
+  <div class="container" style="max-width:720px; text-align:center;">
+    <div class="card-icon" style="margin:0 auto 20px; width:64px; height:64px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+    </div>
+    <p class="eyebrow" style="justify-content:center;">Danke</p>
+    <h1>Ihre Nachricht ist bei uns eingegangen</h1>
+    <p class="hero-lead" style="margin:0 auto 28px;">Wir melden uns so schnell wie möglich bei Ihnen – in der Regel noch am selben Werktag. Bei einem akuten Notfall rufen Sie uns bitte zusätzlich direkt an.</p>
+    <div class="btn-group" style="justify-content:center;">
+      <a href="tel:+4915172448381" class="btn btn-primary">Notdienst anrufen</a>
+      <a href="{{ url_for('index') }}" class="btn btn-outline">Zur Startseite</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

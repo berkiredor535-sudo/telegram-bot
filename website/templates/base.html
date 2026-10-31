@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page_title or "SR Ortung und Bautrocknung GbR" }}</title>
+  <meta name="description" content="{{ meta_description or 'Leckageortung, Wasserschaden-Bautrocknung, Reparatur, Wiederherstellung und Rohrreinigung in Grevenbroich und im Rhein-Kreis Neuss. 24-Stunden-Notdienst, 7 Tage die Woche.' }}">
+  <link rel="canonical" href="{{ request.url_root.rstrip('/') }}{{ request.path }}">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0a0a0b">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SR Ortung und Bautrocknung GbR">
+  <meta property="og:title" content="{{ page_title or 'SR Ortung und Bautrocknung GbR' }}">
+  <meta property="og:description" content="{{ meta_description or 'Leckageortung, Wasserschaden-Bautrocknung, Reparatur, Wiederherstellung und Rohrreinigung in Grevenbroich und im Rhein-Kreis Neuss.' }}">
+  <meta property="og:locale" content="de_DE">
+
+  <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "SR Ortung und Bautrocknung GbR",
+    "image": "{{ request.url_root.rstrip('/') }}{{ url_for('static', filename='favicon.svg') }}",
+    "telephone": "+4915172448381",
+    "email": "rs.schadenortung@gmail.com",
+    "url": "{{ request.url_root }}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Bergheimer Straße 13",
+      "postalCode": "41515",
+      "addressLocality": "Grevenbroich",
+      "addressCountry": "DE"
+    },
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "Rhein-Kreis Neuss"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "17:00",
+        "description": "Bürozeiten"
+      }
+    ],
+    "description": "Leckageortung, Wasserschaden-Bautrocknung, Reparatur, Wiederherstellung und Rohrreinigung mit 24-Stunden-Notdienst in Grevenbroich und im Rhein-Kreis Neuss."
+  }
+  </script>
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="has-mobile-bar{% block body_class %}{% endblock %}">
+  <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
+
+  {% include "partials/_notdienst-bar.html" %}
+  {% include "partials/_header.html" %}
+
+  <main id="main-content">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include "partials/_footer.html" %}
+  {% include "partials/_mobile-bar.html" %}
+
+  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>

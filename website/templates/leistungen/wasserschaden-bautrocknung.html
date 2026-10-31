@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="service-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="{{ url_for('index') }}">Startseite</a> / <a href="{{ url_for('leistungen_index') }}">Leistungen</a> / Wasserschaden &amp; Bautrocknung</p>
+    <p class="eyebrow">Leistung 2 von 5</p>
+    <h1>Wasserschaden &amp; Bautrocknung</h1>
+    <p class="hero-lead">Kondens- und Adsorptionstrockner, Dämmschichttrocknung unter dem Estrich und Heizplatten – mit lückenlosem Trocknungsprotokoll für Ihre Versicherung.</p>
+    <div class="btn-group">
+      <a href="tel:+4915172448381" class="btn btn-primary">Jetzt anrufen</a>
+      <a href="{{ url_for('schaden_melden') }}" class="btn btn-outline">Schaden melden</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="service-section-title"><span class="badge-num">1</span><h2>Wann ist eine Bautrocknung sinnvoll?</h2></div>
+    <ul class="check-list">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Nach Rohrbruch, Rückstau, Starkregen oder Löschwasser steht Wasser in Wand, Boden oder Estrich.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Unter dem Estrich hat sich Feuchtigkeit in der Dämmschicht gesammelt.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Es besteht Schimmelverdacht durch anhaltende Feuchtigkeit.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Ihre Versicherung verlangt einen dokumentierten Trocknungsnachweis.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="service-section-title"><span class="badge-num">2</span><h2>Was Sie bekommen</h2></div>
+    <div class="grid grid-2">
+      <ul class="check-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Kondenstrockner oder Adsorptionstrockner, passend zur Situation</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Dämmschichttrocknung unter dem Estrich über Bohrlöcher</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Heizplatten zur Beschleunigung der Trocknung</li>
+      </ul>
+      <ul class="check-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Feuchtemessung im Raster vor, während und nach der Trocknung</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Trocknungsprotokoll mit Messverlauf, Geräten, Standzeiten und Stromzählerständen</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Endmessung und schriftliche Freigabe</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="service-section-title"><span class="badge-num">3</span><h2>So gehen wir vor</h2></div>
+    <div class="process-steps">
+      <div class="step"><span class="step-num">1</span><h3>Startmessung</h3><p>Feuchtemessung im Raster legt den Ausgangszustand fest.</p></div>
+      <div class="step"><span class="step-num">2</span><h3>Geräte aufbauen</h3><p>Trockner und ggf. Heizplatten werden passend zur Schadensituation eingesetzt.</p></div>
+      <div class="step"><span class="step-num">3</span><h3>Laufende Kontrolle</h3><p>Wir messen regelmäßig nach und protokollieren Geräte, Standzeiten und Stromzählerstände.</p></div>
+      <div class="step"><span class="step-num">4</span><h3>Endmessung &amp; Freigabe</h3><p>Nach erreichter Trockenheit erhalten Sie das vollständige Protokoll zur Freigabe.</p></div>
+    </div>
+  </div>
+</section>
+
+{% include "partials/_service-crosslinks.html" %}
+{% endblock %}

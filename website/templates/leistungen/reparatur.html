@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="service-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="{{ url_for('index') }}">Startseite</a> / <a href="{{ url_for('leistungen_index') }}">Leistungen</a> / Reparatur</p>
+    <p class="eyebrow">Leistung 3 von 5</p>
+    <h1>Reparatur</h1>
+    <p class="hero-lead">Undichte Leitung, defekte Verbindung, gerissenes Rohr: Wir planen den Reparaturweg, beschaffen das passende Material und führen die Arbeiten fachgerecht aus.</p>
+    <div class="btn-group">
+      <a href="tel:+4915172448381" class="btn btn-primary">Jetzt anrufen</a>
+      <a href="{{ url_for('schaden_melden') }}" class="btn btn-outline">Schaden melden</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="service-section-title"><span class="badge-num">1</span><h2>Wann ist eine Reparatur sinnvoll?</h2></div>
+    <ul class="check-list">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Die Leckageortung hat eine undichte Leitung oder Verbindung festgestellt.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Eine Leitung ist sichtbar undicht, tropft oder ist gerissen.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Alte Installationen sollen vor einer Sanierung instandgesetzt werden.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="service-section-title"><span class="badge-num">2</span><h2>Was Sie bekommen</h2></div>
+    <ul class="check-list">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Planung des Reparaturwegs – mit möglichst geringem Eingriff in Wand oder Boden</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Passendes Material für Ihre vorhandene Installation</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Fachgerechte Ausführung durch einen gelernten Installateur</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Dichtigkeitsprüfung nach der Reparatur und kurze Dokumentation</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="service-section-title"><span class="badge-num">3</span><h2>So gehen wir vor</h2></div>
+    <div class="process-steps">
+      <div class="step"><span class="step-num">1</span><h3>Befund übernehmen</h3><p>Wir greifen auf den Ortungsbefund zurück oder prüfen die Schadstelle direkt vor Ort.</p></div>
+      <div class="step"><span class="step-num">2</span><h3>Material &amp; Kostenrahmen</h3><p>Wir stimmen Vorgehen und Material mit Ihnen ab und nennen einen Kostenrahmen.</p></div>
+      <div class="step"><span class="step-num">3</span><h3>Reparatur</h3><p>Die undichte Stelle wird fachgerecht instandgesetzt.</p></div>
+      <div class="step"><span class="step-num">4</span><h3>Prüfung &amp; Abnahme</h3><p>Eine Dichtigkeitsprüfung bestätigt den Erfolg der Reparatur.</p></div>
+    </div>
+  </div>
+</section>
+
+{% include "partials/_service-crosslinks.html" %}
+{% endblock %}

@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="service-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="{{ url_for('index') }}">Startseite</a> / Schaden melden</p>
+    <p class="eyebrow">Schaden melden</p>
+    <h1>Schaden in wenigen Minuten melden</h1>
+    <p class="hero-lead">Beschreiben Sie Ihren Schaden, laden Sie bis zu 5 Fotos hoch und teilen Sie uns Kontakt und Schadenort mit. Für akute Notfälle rufen Sie uns bitte zusätzlich direkt an: <a href="tel:+4915172448381">01517 2448381</a>.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:760px;">
+    {% if error %}
+    <div class="form-alert error" role="alert">{{ error }}</div>
+    {% endif %}
+    <div class="form-alert error" id="form-alert" role="alert" hidden></div>
+
+    <div class="form-card">
+      <div class="stepper">
+        <span class="dot-step">1. Schaden</span>
+        <span class="dot-step">2. Fotos</span>
+        <span class="dot-step">3. Kontakt</span>
+        <span class="dot-step">4. Versicherung</span>
+      </div>
+
+      <form id="schaden-form" action="{{ url_for('schaden_melden') }}" method="post" enctype="multipart/form-data" novalidate>
+        <div class="field hp-field" aria-hidden="true">
+          <label for="firma_webseite">Firma (bitte freilassen)</label>
+          <input type="text" id="firma_webseite" name="firma_webseite" tabindex="-1" autocomplete="off">
+        </div>
+
+        <!-- Schritt 1: Art des Schadens -->
+        <fieldset class="form-step" data-step="1">
+          <legend>Welche Art von Schaden liegt vor? <span class="required-mark">*</span></legend>
+          <div class="radio-cards">
+            {% for key, label in (schadenarten or {}).items() %}
+            <label class="radio-card">
+              <input type="radio" name="schadenart" value="{{ key }}" required {% if values and values.schadenart == key %}checked{% endif %}>
+              <span class="title">{{ label }}</span>
+            </label>
+            {% endfor %}
+          </div>
+          <div class="form-nav" style="margin-top:24px;">
+            <button type="button" class="btn btn-primary" data-next>Weiter</button>
+          </div>
+        </fieldset>
+
+        <!-- Schritt 2: Fotos -->
+        <fieldset class="form-step" data-step="2">
+          <legend>Fotos vom Schaden (optional, bis zu 5)</legend>
+          <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Fotos auswählen oder hierher ziehen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg>
+            <p style="margin:0;">Fotos hierher ziehen oder <strong>klicken, um auszuwählen</strong></p>
+            <p class="hint">JPG, PNG oder WEBP · je max. 8 MB · max. 5 Fotos</p>
+          </div>
+          <input type="file" id="photos-input" name="fotos" accept="image/*" multiple hidden>
+          <noscript><p class="hint">Ohne JavaScript können Sie hier keine Fotos anhängen. Senden Sie uns Fotos gerne per WhatsApp oder E-Mail an <a href="mailto:rs.schadenortung@gmail.com">rs.schadenortung@gmail.com</a>.</p></noscript>
+          <div class="photo-preview" id="photo-preview"></div>
+          <p class="hint"><span id="photo-count">0 / 5 Fotos</span></p>
+          <p class="hint" id="photo-error" style="color:var(--danger);"></p>
+          <div class="form-nav" style="margin-top:12px; display:flex; gap:12px;">
+            <button type="button" class="btn btn-outline" data-prev>Zurück</button>
+            <button type="button" class="btn btn-primary" data-next>Weiter</button>
+          </div>
+        </fieldset>
+
+        <!-- Schritt 3: Kontakt + Schadenort -->
+        <fieldset class="form-step" data-step="3">
+          <legend>Ihre Kontaktdaten &amp; Schadenort</legend>
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Name <span class="required-mark">*</span></label>
+              <input type="text" id="name" name="name" required autocomplete="name" value="{{ values.name if values else '' }}">
+            </div>
+            <div class="field">
+              <label for="telefon">Telefon <span class="required-mark">*</span></label>
+              <input type="tel" id="telefon" name="telefon" required autocomplete="tel" value="{{ values.telefon if values else '' }}">
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">E-Mail (optional)</label>
+            <input type="email" id="email" name="email" autocomplete="email" value="{{ values.email if values else '' }}">
+          </div>
+          <div class="field">
+            <label for="adresse">Adresse / Schadenort <span class="required-mark">*</span></label>
+            <input type="text" id="adresse" name="adresse" required placeholder="Straße, Hausnummer, PLZ, Ort" value="{{ values.adresse if values else '' }}">
+            <div class="location-row" style="margin-top:10px;">
+              <button type="button" class="btn btn-ghost btn-sm" id="use-location">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                Standort verwenden
+              </button>
+              <span class="location-status" id="location-status"></span>
+            </div>
+            <input type="hidden" id="field-lat" name="lat">
+            <input type="hidden" id="field-lng" name="lng">
+          </div>
+          <div class="form-nav" style="margin-top:12px; display:flex; gap:12px;">
+            <button type="button" class="btn btn-outline" data-prev>Zurück</button>
+            <button type="button" class="btn btn-primary" data-next>Weiter</button>
+          </div>
+        </fieldset>
+
+        <!-- Schritt 4: Versicherung / Schadennummer / Wunschtermin -->
+        <fieldset class="form-step" data-step="4">
+          <legend>Versicherung &amp; Wunschtermin (optional)</legend>
+          <div class="field-row">
+            <div class="field">
+              <label for="versicherung">Versicherung</label>
+              <input type="text" id="versicherung" name="versicherung" value="{{ values.versicherung if values else '' }}">
+            </div>
+            <div class="field">
+              <label for="schadennummer">Schadennummer</label>
+              <input type="text" id="schadennummer" name="schadennummer" value="{{ values.schadennummer if values else '' }}">
+            </div>
+          </div>
+          <div class="field">
+            <label for="wunschtermin">Wunschtermin</label>
+            <input type="date" id="wunschtermin" name="wunschtermin">
+          </div>
+          <div class="field">
+            <label for="nachricht">Weitere Angaben</label>
+            <textarea id="nachricht" name="nachricht" rows="4">{{ values.nachricht if values else '' }}</textarea>
+          </div>
+          <div class="field checkbox-row">
+            <input type="checkbox" id="datenschutz" name="datenschutz" required>
+            <label for="datenschutz">Ich habe die <a href="{{ url_for('datenschutz') }}" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Daten – einschließlich der hochgeladenen Fotos – zur Bearbeitung meiner Schadenmeldung einverstanden. <span class="required-mark">*</span></label>
+          </div>
+          <div class="form-nav" style="margin-top:12px; display:flex; gap:12px;">
+            <button type="button" class="btn btn-outline" data-prev>Zurück</button>
+            <button type="submit" class="btn btn-primary">Schaden melden</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block extra_scripts %}<script src="{{ url_for('static', filename='js/schaden-melden.js') }}" defer></script>{% endblock %}

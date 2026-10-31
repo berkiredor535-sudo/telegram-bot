@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="service-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="{{ url_for('index') }}">Startseite</a> / <a href="{{ url_for('leistungen_index') }}">Leistungen</a> / Rohrreinigung</p>
+    <p class="eyebrow">Leistung 5 von 5</p>
+    <h1>Rohrreinigung</h1>
+    <p class="hero-lead">Toilette, Dusche, Küche oder Grundleitung verstopft? Wir reinigen die Leitung und klären auf Wunsch mit Kamera-Inspektion die Ursache.</p>
+    <div class="btn-group">
+      <a href="tel:+4915172448381" class="btn btn-primary">Jetzt anrufen</a>
+      <a href="{{ url_for('schaden_melden') }}" class="btn btn-outline">Schaden melden</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="service-section-title"><span class="badge-num">1</span><h2>Wann ist eine Rohrreinigung sinnvoll?</h2></div>
+    <ul class="check-list">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Toilette, Dusche oder Küchenabfluss laufen nur noch langsam ab.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Eine Verstopfung tritt immer wieder an derselben Stelle auf.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Aus dem Abfluss steigt unangenehmer Geruch auf.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Es besteht Verdacht auf eine Verstopfung in der Grundleitung.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="service-section-title"><span class="badge-num">2</span><h2>Was Sie bekommen</h2></div>
+    <ul class="check-list">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Reinigung von Toilette, Dusche, Küche oder Grundleitung</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Auf Wunsch eine Kamera-Inspektion zur Ursachenklärung</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Einschätzung, ob weitere Maßnahmen wie eine Reparatur notwendig sind</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="service-section-title"><span class="badge-num">3</span><h2>So gehen wir vor</h2></div>
+    <div class="process-steps">
+      <div class="step"><span class="step-num">1</span><h3>Problem schildern</h3><p>Sie beschreiben uns am Telefon, wo und wie sich die Verstopfung zeigt.</p></div>
+      <div class="step"><span class="step-num">2</span><h3>Reinigung vor Ort</h3><p>Je nach Fall reinigen wir die Leitung mechanisch oder mit Hochdruck.</p></div>
+      <div class="step"><span class="step-num">3</span><h3>Kamera-Inspektion</h3><p>Bei Bedarf prüfen wir die Leitung von innen, um die Ursache zu klären.</p></div>
+      <div class="step"><span class="step-num">4</span><h3>Rückmeldung</h3><p>Sie erhalten eine klare Empfehlung, ob und welche weiteren Schritte sinnvoll sind.</p></div>
+    </div>
+  </div>
+</section>
+
+{% include "partials/_service-crosslinks.html" %}
+{% endblock %}

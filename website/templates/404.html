@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="section container" style="text-align:center;">
+  <p class="eyebrow">Fehler 404</p>
+  <h1>Diese Seite gibt es nicht</h1>
+  <p class="hero-lead" style="margin:0 auto 28px;">Die aufgerufene Seite wurde nicht gefunden. Vielleicht hilft Ihnen einer dieser Links weiter.</p>
+  <div class="btn-group" style="justify-content:center;">
+    <a href="{{ url_for('index') }}" class="btn btn-primary">Zur Startseite</a>
+    <a href="{{ url_for('kontakt') }}" class="btn btn-outline">Kontakt aufnehmen</a>
+  </div>
+</section>
+{% endblock %}

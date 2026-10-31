@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="service-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="{{ url_for('index') }}">Startseite</a> / Kontakt</p>
+    <p class="eyebrow">Kontakt</p>
+    <h1>Rückruf oder Termin vereinbaren</h1>
+    <p class="hero-lead">Für akute Schäden nutzen Sie bitte direkt unseren <a href="tel:+4915172448381">24-Stunden-Notdienst</a> oder die Seite <a href="{{ url_for('schaden_melden') }}">Schaden melden</a>. Für alles andere erreichen Sie uns hier.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid grid-2" style="align-items:flex-start; gap:40px;">
+      <div class="form-card">
+        {% if error %}
+        <div class="form-alert error" role="alert">{{ error }}</div>
+        {% endif %}
+        <div class="form-alert error" id="form-alert" role="alert" hidden></div>
+
+        <form id="kontakt-form" action="{{ url_for('kontakt') }}" method="post" novalidate>
+          <div class="field hp-field" aria-hidden="true">
+            <label for="firma_webseite">Firma (bitte freilassen)</label>
+            <input type="text" id="firma_webseite" name="firma_webseite" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Name <span class="required-mark">*</span></label>
+              <input type="text" id="name" name="name" required autocomplete="name" value="{{ values.name if values else '' }}">
+            </div>
+            <div class="field">
+              <label for="telefon">Telefon <span class="required-mark">*</span></label>
+              <input type="tel" id="telefon" name="telefon" required autocomplete="tel" value="{{ values.telefon if values else '' }}">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="email">E-Mail</label>
+              <input type="email" id="email" name="email" autocomplete="email" value="{{ values.email if values else '' }}">
+            </div>
+            <div class="field">
+              <label for="anliegen">Anliegen <span class="required-mark">*</span></label>
+              <select id="anliegen" name="anliegen" required>
+                <option value="">Bitte wählen</option>
+                <option value="rueckruf">Rückruf gewünscht</option>
+                <option value="termin">Termin vereinbaren</option>
+                <option value="frage">Allgemeine Frage</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="wunschtermin">Wunschtermin (optional)</label>
+            <input type="date" id="wunschtermin" name="wunschtermin">
+          </div>
+
+          <div class="field">
+            <label for="nachricht">Nachricht</label>
+            <textarea id="nachricht" name="nachricht" rows="4">{{ values.nachricht if values else '' }}</textarea>
+          </div>
+
+          <div class="field checkbox-row">
+            <input type="checkbox" id="datenschutz" name="datenschutz" required>
+            <label for="datenschutz">Ich habe die <a href="{{ url_for('datenschutz') }}" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage einverstanden. <span class="required-mark">*</span></label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Nachricht senden</button>
+        </form>
+      </div>
+
+      <div>
+        <h2>Direkt erreichbar</h2>
+        <ul class="check-list" style="margin-bottom:24px;">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg> <a href="tel:+4915172448381">01517 2448381</a> (Telefon &amp; WhatsApp)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-6l-2-2H5a2 2 0 0 0-2 2Z"/></svg> <a href="mailto:rs.schadenortung@gmail.com">rs.schadenortung@gmail.com</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Bergheimer Straße 13, 41515 Grevenbroich</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> Büro: Mo–Fr 8–17 Uhr · Notdienst: 24 Std., 7 Tage</li>
+        </ul>
+        <a href="https://www.google.com/maps/search/?api=1&query=Bergheimer+Stra%C3%9Fe+13%2C+41515+Grevenbroich" target="_blank" rel="noopener" class="btn btn-outline">In Google Maps öffnen</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block extra_scripts %}<script src="{{ url_for('static', filename='js/kontakt.js') }}" defer></script>{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="service-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="{{ url_for('index') }}">Startseite</a> / Versicherung</p>
+    <p class="eyebrow">Versicherungsfall</p>
+    <h1>Wasserschaden – diese Schritte zählen jetzt</h1>
+    <p class="hero-lead">Was Sie in den ersten Minuten tun sollten, welche Versicherung bei einem Wasserschaden zuständig ist und welche Protokolle wir Ihnen für die Schadenregulierung liefern.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="safety-note" style="margin-bottom:32px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/></svg>
+      <div><strong>Bei Gefahr für Menschen</strong> (z. B. Wasser an der Elektrik) sofort <strong>Strom abschalten</strong> und den <strong>Notruf 112</strong> wählen.</div>
+    </div>
+
+    <p class="eyebrow">Sofort-Tipps</p>
+    <h2>Das sollten Sie als Erstes tun</h2>
+    <div class="process-steps" style="margin-top:24px;">
+      <div class="step"><span class="step-num">1</span><h3>Wasser absperren</h3><p>Haupthahn oder betroffenes Eckventil zudrehen, um weiteren Schaden zu verhindern.</p></div>
+      <div class="step"><span class="step-num">2</span><h3>Strom aus</h3><p>Betroffenen Stromkreis abschalten. Bei Gefahr für Personen: Hauptschalter aus, 112 rufen.</p></div>
+      <div class="step"><span class="step-num">3</span><h3>Fotos machen</h3><p>Schäden fotografieren – inklusive Stand des Wasserzählers mit Datum und Uhrzeit.</p></div>
+      <div class="step"><span class="step-num">4</span><h3>Versicherung informieren</h3><p>Schaden zeitnah melden und die Schadennummer notieren.</p></div>
+    </div>
+    <div class="safety-note" style="margin-top:24px; border-color:var(--accent); background:var(--accent-soft);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--accent);" aria-hidden="true"><path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/></svg>
+      <div style="color:var(--text-muted);"><strong style="color:var(--accent);">Wichtig:</strong> Stemmen Sie nichts selbst auf und beginnen Sie keine eigenen Reparaturen, bevor die Ursache geklärt ist. Das erleichtert die Beweissicherung und verhindert unnötige Eingriffe an der falschen Stelle.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <p class="eyebrow">Zuständigkeit</p>
+    <h2>Wohngebäude- oder Hausratversicherung?</h2>
+    <div class="grid grid-2" style="margin-top:24px;">
+      <div class="card">
+        <h3>Wohngebäudeversicherung</h3>
+        <p>Zuständig für Schäden am Gebäude selbst: Wände, Böden, Estrich, fest verbaute Leitungen und die Bausubstanz. Bei Eigentümern in der Regel die erste Anlaufstelle für einen Leitungswasserschaden.</p>
+      </div>
+      <div class="card">
+        <h3>Hausratversicherung</h3>
+        <p>Zuständig für beschädigtes Mobiliar, Einrichtung und persönliche Gegenstände. Für Mieterinnen und Mieter meist die relevante Versicherung für den eigenen Hausrat.</p>
+      </div>
+    </div>
+    <p style="margin-top:20px;">Bei vielen Wasserschäden sind Gebäude und Einrichtung gleichzeitig betroffen – dann lohnt es sich, beide Versicherungen zu informieren. Welche Police im Einzelfall greift, hängt von Ihrem konkreten Vertrag ab: <span class="placeholder-tag">im Zweifel bei Ihrer Versicherung nachfragen</span>.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Unsere Nachweise</p>
+    <h2>Welche Protokolle wir liefern</h2>
+    <table class="table-plain">
+      <thead>
+        <tr><th>Leistung</th><th>Protokoll / Nachweis</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Leckageortung</td><td>Ortungsprotokoll mit Fotos der Messungen und der gefundenen Schadstelle</td></tr>
+        <tr><td>Wasserschaden &amp; Bautrocknung</td><td>Trocknungsprotokoll mit Messverlauf, eingesetzten Geräten, Standzeiten und Stromzählerständen inkl. Endmessung</td></tr>
+        <tr><td>Reparatur</td><td>Kurzdokumentation der durchgeführten Reparatur und der Dichtigkeitsprüfung</td></tr>
+      </tbody>
+    </table>
+    <p>Diese Unterlagen übergeben wir Ihnen digital oder als Ausdruck – fertig zur Weiterleitung an Ihre Versicherung.</p>
+    <div class="btn-group" style="margin-top:12px;">
+      <a href="{{ url_for('schaden_melden') }}" class="btn btn-primary">Schaden jetzt melden</a>
+      <a href="{{ url_for('kontakt') }}" class="btn btn-outline">Fragen vorab klären</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

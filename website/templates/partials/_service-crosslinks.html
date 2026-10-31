@@ -1,0 +1,28 @@
+<section class="section section-alt">
+  <div class="container">
+    <p class="eyebrow">Das könnte auch interessieren</p>
+    <h2>Weitere Leistungen</h2>
+    <div class="grid grid-3" style="margin-top:24px;">
+      {% for other_slug, other_service in services.items() if other_slug != slug %}
+      <a href="{{ url_for('leistung_detail', slug=other_slug) }}" class="card card-link">
+        <h3>{{ other_service.title }}</h3>
+        <p>{{ other_service.teaser }}</p>
+        <span class="more">Mehr erfahren →</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Bereit für den nächsten Schritt?</h2>
+      <p style="max-width:52ch; margin:0 auto 24px;">Rufen Sie uns an, schreiben Sie per WhatsApp oder melden Sie Ihren Schaden direkt online.</p>
+      <div class="btn-group" style="justify-content:center;">
+        <a href="tel:+4915172448381" class="btn btn-primary">01517 2448381 anrufen</a>
+        <a href="{{ url_for('schaden_melden') }}" class="btn btn-outline">Schaden online melden</a>
+      </div>
+    </div>
+  </div>
+</section>

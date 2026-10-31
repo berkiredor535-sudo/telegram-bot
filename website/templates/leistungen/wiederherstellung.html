@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="service-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="{{ url_for('index') }}">Startseite</a> / <a href="{{ url_for('leistungen_index') }}">Leistungen</a> / Wiederherstellung</p>
+    <p class="eyebrow">Leistung 4 von 5</p>
+    <h1>Wiederherstellung</h1>
+    <p class="hero-lead">Putz, Trockenbau, Estrich, Fliesen, Böden, Anstrich: Wir koordinieren alle beteiligten Gewerke, damit aus der getrockneten Baustelle wieder ein fertiger Raum wird.</p>
+    <div class="btn-group">
+      <a href="tel:+4915172448381" class="btn btn-primary">Jetzt anrufen</a>
+      <a href="{{ url_for('schaden_melden') }}" class="btn btn-outline">Schaden melden</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="service-section-title"><span class="badge-num">1</span><h2>Wann ist eine Wiederherstellung sinnvoll?</h2></div>
+    <ul class="check-list">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Die Trocknung ist abgeschlossen und der Raum soll wieder nutzbar werden.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Nach einer Reparatur sind Wände, Boden oder Estrich beschädigt.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Putz, Tapete oder Bodenbelag wurden durch den Wasserschaden sichtbar beschädigt.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="service-section-title"><span class="badge-num">2</span><h2>Was Sie bekommen</h2></div>
+    <div class="grid grid-2">
+      <ul class="check-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Putzarbeiten und Trockenbau</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Estricharbeiten</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Fliesenverlegung und Bodenbeläge</li>
+      </ul>
+      <ul class="check-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Malerarbeiten und Anstrich</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Koordination aller beteiligten Gewerke</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Ein Ansprechpartner für den gesamten Wiederaufbau</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="service-section-title"><span class="badge-num">3</span><h2>So gehen wir vor</h2></div>
+    <div class="process-steps">
+      <div class="step"><span class="step-num">1</span><h3>Bestandsaufnahme</h3><p>Nach der Trocknung prüfen wir, welche Gewerke für die Wiederherstellung nötig sind.</p></div>
+      <div class="step"><span class="step-num">2</span><h3>Abstimmung</h3><p>Wir besprechen Umfang und Material mit Ihnen – bei Bedarf auch mit Ihrer Versicherung.</p></div>
+      <div class="step"><span class="step-num">3</span><h3>Gewerke koordinieren</h3><p>Putz, Estrich, Fliesen, Boden und Anstrich werden in der richtigen Reihenfolge ausgeführt.</p></div>
+      <div class="step"><span class="step-num">4</span><h3>Abnahme &amp; Übergabe</h3><p>Nach der Endreinigung übergeben wir Ihnen den fertigen Raum.</p></div>
+    </div>
+  </div>
+</section>
+
+{% include "partials/_service-crosslinks.html" %}
+{% endblock %}
